@@ -20,15 +20,25 @@ namespace hrdina_a_drak___pondeli_10
         public void Boj()
         {
 
-            while (Hrdina.JeZivy() && Drak.JeZivy())
+            while (Hrdina.MuzeBojovat() && Drak.MuzeBojovat())
             {
                 double utok = Hrdina.Utok(Drak);
                 Console.WriteLine($"Hrdina zaútočil hodnotou: {utok}. Drakovi zbývá {Drak.Zdravi} životů.");
-                if (Drak.JeZivy())
+                if (Drak.MuzeBojovat())
                 {
                     utok = Drak.Utok(Hrdina);
                     Console.WriteLine($"Drak zaútočil hodnotou: {utok}. Hrdinovi zbývá {Hrdina.Zdravi} životů.");
                 }
+
+                /*try
+                {
+                    utok = Drak.Utok(Hrdina);
+                    Console.WriteLine($"Drak zaútočil hodnotou: {utok}. Hrdinovi zbývá {Hrdina.Zdravi} životů.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }*/
                 Console.WriteLine(String.Empty);
             }
 
