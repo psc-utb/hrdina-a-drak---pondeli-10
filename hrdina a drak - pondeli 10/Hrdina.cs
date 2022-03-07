@@ -28,5 +28,18 @@ namespace hrdina_a_drak___pondeli_10
             }
         }
 
+        public Hrdina Clone()
+        {
+            //Hrdina klon = new Hrdina(this.Jmeno, this.Zdravi, this.ZdraviMax, this.PoskozeniMax, ZbrojMax, this.Mec.Clone());
+            Hrdina klon = this.MemberwiseClone() as Hrdina;
+            klon.Mec = klon.Mec.Clone();
+            return klon;
+        }
+
+        public override string ToString()
+        {
+            return $"{Jmeno}, zdravi: {Zdravi}, zdraviMax: {ZdraviMax}, poskozeniMax: {PoskozeniMax}, zbrojMax: {ZbrojMax}, mec: {Mec.PoskozeniMax}";
+        }
+
     }
 }

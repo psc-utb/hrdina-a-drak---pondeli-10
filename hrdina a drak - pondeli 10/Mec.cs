@@ -14,5 +14,12 @@ namespace hrdina_a_drak___pondeli_10
         {
             PoskozeniMax = poskozeniMax;
         }
+
+        public Mec Clone()
+        {
+            //Mec mec = new Mec(this.PoskozeniMax);
+            Mec mec = this.MemberwiseClone() as Mec;
+            return mec;
+        }
     }
 }
