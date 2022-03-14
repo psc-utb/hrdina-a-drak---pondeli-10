@@ -28,16 +28,8 @@ namespace hrdina_a_drak___pondeli_10
                         Postava oponent = Postavy[i].VyberOponenta(Postavy);
                         if (oponent != null)
                         {
-                            if (Postavy[i] is Hrdina hrdina)
-                            {
-                                double utok = hrdina.Utok(oponent);
-                                Console.WriteLine($"{Postavy[i].Jmeno} zaútočil hodnotou: {utok}. {oponent.Jmeno} má {oponent.Zdravi} životů.");
-                            }
-                            else
-                            {
-                                double utok = Postavy[i].Utok(oponent);
-                                Console.WriteLine($"{Postavy[i].Jmeno} zaútočil hodnotou: {utok}. {oponent.Jmeno} má {oponent.Zdravi} životů.");
-                            }
+                            double utok = Postavy[i].Utok(oponent);
+                            Console.WriteLine($"{Postavy[i].Jmeno} zaútočil hodnotou: {utok}. {oponent.Jmeno} má {oponent.Zdravi} životů.");
                         }
                     }
                 }

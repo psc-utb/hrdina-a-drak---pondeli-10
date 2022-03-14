@@ -33,12 +33,12 @@ namespace hrdina_a_drak___pondeli_10
         /// <param name="oponent">oponent na ktereho postava utoci</param>
         /// <returns>vraci hodnotu utoku</returns>
         /// <exception cref="Exception">vyvolá se kdyz postava nemuze bojovat</exception>
-        public double Utok(Postava oponent)
+        public virtual double Utok(Postava oponent)
         {
-            return UtokGenerovani(oponent, PoskozeniMax);
+            return Utok(oponent, PoskozeniMax);
         }
 
-        protected double UtokGenerovani(Postava oponent, double poskozeniMax)
+        protected double Utok(Postava oponent, double poskozeniMax)
         {
             if (MuzeBojovat())
             {
@@ -58,7 +58,7 @@ namespace hrdina_a_drak___pondeli_10
                 throw new Exception($"Postava se jménem \"{Jmeno}\" už nemůže bojovat!");
         }
 
-        public double Obrana()
+        public virtual double Obrana()
         {
             double hodnotaObrany = 0;
 
@@ -67,7 +67,7 @@ namespace hrdina_a_drak___pondeli_10
             return hodnotaObrany;
         }
 
-        public Postava VyberOponenta(Postava[] postavy)
+        public virtual Postava VyberOponenta(Postava[] postavy)
         {
             foreach(var postava in postavy)
             {

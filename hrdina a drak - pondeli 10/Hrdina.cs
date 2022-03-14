@@ -16,15 +16,19 @@ namespace hrdina_a_drak___pondeli_10
             Mec = mec;
         }
 
-        public new double Utok(Postava oponent)
+        public Hrdina(string jmeno, double zdraviMax, double poskozeniMax, double zbrojMax) : this(jmeno, zdraviMax, zdraviMax, poskozeniMax, zbrojMax, null)
+        {
+        }
+
+        public override double Utok(Postava oponent)
         {
             if (Mec != null)
             {
-                return UtokGenerovani(oponent, Mec.PoskozeniMax);
+                return Utok(oponent, Mec.PoskozeniMax);
             }
             else
             {
-                return UtokGenerovani(oponent, PoskozeniMax);
+                return Utok(oponent, PoskozeniMax);
             }
         }
 
