@@ -42,13 +42,13 @@ namespace hrdina_a_drak___pondeli_10
             int kolikMuzeBojovat = 0;
             foreach (var postava in Postavy)
             {
-                if (postava.MuzeBojovat())
+                if (postava.MuzeBojovat() && postava.MuzeVybratOponenta(Postavy))
                 {
                     ++kolikMuzeBojovat;
                 }
             }
 
-            if (kolikMuzeBojovat > 1)
+            if (kolikMuzeBojovat > 0)
             {
                 return true;
             }

@@ -13,5 +13,9 @@ namespace hrdina_a_drak___pondeli_10
         {
         }
 
+        protected override bool KontrolaOponenta(Postava oponent)
+        {
+            return oponent is not Drak;
+        }
     }
 }

@@ -6,10 +6,15 @@ namespace hrdina_a_drak___pondeli_10
     {
         static void Main(string[] args)
         {
-            Mec mec = new Mec(15);
+            Mec mec = new Mec(25);
             Hrdina hrdina = new Hrdina("Geralt", 100, 100, 10, 10, mec);
+            Hrdina hrdina2 = new Hrdina("Dovahkiin", 100, 100, 10, 10, mec);
             Drak drak = new Drak("Alduin", 100, 100, 11, 10);
-            //Vlk vlk = new Vlk("Wolf", 50, 50, 5, 5);
+            Drak drak2 = new Drak("Šmak", 100, 100, 11, 10);
+            Vlk vlk = new Vlk("Wolf", 50, 50, 5, 5);
+            Vlk vlk2 = new Vlk("Wolf2", 50, 50, 5, 5);
+            Vlk vlk3 = new Vlk("Wolf3", 50, 50, 5, 5);
+            Vlk vlk4 = new Vlk("Wolf4", 50, 50, 5, 5);
 
 
             //klonovni a zmena hrdiny
@@ -30,9 +35,21 @@ namespace hrdina_a_drak___pondeli_10
             //funguje jen s params v konstruktoru
             //ArenaPostav arenaPostav = new ArenaPostav(hrdina, drak);
 
-            Postava[] postavy = new Postava[] { hrdina, drak/*, hrdinaKlon*/ /*, vlk*/ };
+            Postava[] postavy = new Postava[] { hrdina, drak2, drak, vlk3, vlk4, /*, hrdinaKlon*/ vlk, hrdina2, vlk2 };
+            Array.Sort(postavy);
+            foreach (var postava in postavy)
+            {
+                Console.WriteLine(postava.ToString());
+            }
+            Console.WriteLine(String.Empty);
+
             ArenaPostav arenaPostav = new ArenaPostav(postavy);
             arenaPostav.Boj();
+
+            foreach(var postava in arenaPostav.Postavy)
+            {
+                Console.WriteLine(postava.ToString());
+            }
 
         }
     }
