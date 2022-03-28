@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace hrdina_a_drak___pondeli_10
 {
-    public abstract class Postava : IComparable<Postava>
+    public abstract class Postava : IComparable<Postava>, IZasazitelny
     {
 
         public string Jmeno { get; set; }
@@ -33,12 +33,12 @@ namespace hrdina_a_drak___pondeli_10
         /// <param name="oponent">oponent na ktereho postava utoci</param>
         /// <returns>vraci hodnotu utoku</returns>
         /// <exception cref="Exception">vyvolá se kdyz postava nemuze bojovat</exception>
-        public virtual double Utok(Postava oponent)
+        public virtual double Utok(IZasazitelny oponent)
         {
             return Utok(oponent, PoskozeniMax);
         }
 
-        protected double Utok(Postava oponent, double poskozeniMax)
+        protected double Utok(IZasazitelny oponent, double poskozeniMax)
         {
             if (MuzeBojovat())
             {

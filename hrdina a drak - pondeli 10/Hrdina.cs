@@ -20,7 +20,7 @@ namespace hrdina_a_drak___pondeli_10
         {
         }
 
-        public override double Utok(Postava oponent)
+        public override double Utok(IZasazitelny oponent)
         {
             if (Mec != null)
             {
