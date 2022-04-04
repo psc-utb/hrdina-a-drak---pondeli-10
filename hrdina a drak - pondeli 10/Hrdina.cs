@@ -42,7 +42,10 @@ namespace hrdina_a_drak___pondeli_10
 
         public override string ToString()
         {
-            return $"{Jmeno}, zdravi: {Zdravi}, zdraviMax: {ZdraviMax}, poskozeniMax: {PoskozeniMax}, zbrojMax: {ZbrojMax}, mec: {Mec.PoskozeniMax}, hodnoceni postavy: {HodnoceniPostavy()}";
+            if (Mec != null)
+                return $"{Jmeno}, zdravi: {Zdravi}, zdraviMax: {ZdraviMax}, poskozeniMax: {PoskozeniMax}, zbrojMax: {ZbrojMax}, mec: {Mec.PoskozeniMax}, hodnoceni postavy: {HodnoceniPostavy()}";
+            else
+                return $"{Jmeno}, zdravi: {Zdravi}, zdraviMax: {ZdraviMax}, poskozeniMax: {PoskozeniMax}, zbrojMax: {ZbrojMax}, hodnoceni postavy: {HodnoceniPostavy()}";
         }
 
         protected override bool KontrolaOponenta(Postava oponent)

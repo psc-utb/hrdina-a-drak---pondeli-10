@@ -8,9 +8,9 @@ namespace hrdina_a_drak___pondeli_10
 {
     public class ArenaPostav
     {
-        public Postava[] Postavy { get; set; }
+        public List<Postava> Postavy { get; set; }
 
-        public ArenaPostav(/*params*/ Postava[] postavy)
+        public ArenaPostav(/*params*/ List<Postava> postavy)
         {
             Postavy = postavy;
         }
@@ -21,7 +21,7 @@ namespace hrdina_a_drak___pondeli_10
             Bedna bedna = new Bedna(50, 2);
             while (PostavyMohouBojovat())
             {
-                for (int i = 0; i < Postavy.Length; ++i)
+                for (int i = 0; i < Postavy.Count; ++i)
                 {
                     if (Postavy[i].MuzeBojovat())
                     {

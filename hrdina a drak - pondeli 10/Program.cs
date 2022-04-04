@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace hrdina_a_drak___pondeli_10
 {
@@ -35,14 +37,18 @@ namespace hrdina_a_drak___pondeli_10
             //funguje jen s params v konstruktoru
             //ArenaPostav arenaPostav = new ArenaPostav(hrdina, drak);
 
-            Postava[] postavy = new Postava[] { hrdina, drak2, drak, vlk3, vlk4, /*, hrdinaKlon*/ vlk, hrdina2, vlk2 };
-            Array.Sort(postavy);
+            List<Postava> postavy = new List<Postava>() { hrdina, drak2, drak, vlk3, vlk4, /*, hrdinaKlon*/ vlk, hrdina2, vlk2 };
+
+            //Array.Sort(postavy);
+            postavy.Sort();
             foreach (var postava in postavy)
             {
                 Console.WriteLine(postava.ToString());
             }
             Console.WriteLine(String.Empty);
-
+            
+            postavy.Add(new Hrdina("hrdina 5", 20, 5, 5));
+            postavy.RemoveAt(2);
             ArenaPostav arenaPostav = new ArenaPostav(postavy);
             arenaPostav.Boj();
 

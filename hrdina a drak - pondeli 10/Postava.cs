@@ -67,7 +67,7 @@ namespace hrdina_a_drak___pondeli_10
             return hodnotaObrany;
         }
 
-        public virtual Postava VyberOponenta(Postava[] postavy)
+        public virtual Postava VyberOponenta(List<Postava> postavy)
         {
             foreach(var postava in postavy)
             {
@@ -80,7 +80,7 @@ namespace hrdina_a_drak___pondeli_10
             return null;
         }
 
-        public bool MuzeVybratOponenta(Postava[] postavy)
+        public bool MuzeVybratOponenta(List<Postava> postavy)
         {
             Postava oponent = VyberOponenta(postavy);
             if (oponent != null)
