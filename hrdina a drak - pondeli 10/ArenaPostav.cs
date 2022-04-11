@@ -13,6 +13,10 @@ namespace hrdina_a_drak___pondeli_10
         public ArenaPostav(/*params*/ List<Postava> postavy)
         {
             Postavy = postavy;
+            foreach(var postava in Postavy)
+            {
+                postava.VybranNovyOponent += VypisInfoPoVyberuNovehoOponenta;
+            }
         }
 
 
@@ -67,6 +71,11 @@ namespace hrdina_a_drak___pondeli_10
             {
                 return false;
             }
+        }
+
+        void VypisInfoPoVyberuNovehoOponenta(Postava utocnik, Postava oponent)
+        {
+            Console.WriteLine($"Postava: {utocnik.Jmeno} si vybrala nového oponenta: {oponent.Jmeno}");
         }
     }
 }

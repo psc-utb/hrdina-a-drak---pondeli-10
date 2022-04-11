@@ -16,6 +16,8 @@ namespace hrdina_a_drak___pondeli_10
         public double ZbrojMax { get; set; }
         public bool Utekl { get; set; }
 
+        private Postava predchoziOponent;
+        public event Action<Postava, Postava> VybranNovyOponent;
 
         public Postava(string jmeno, double zdravi, double zdraviMax, double poskozeniMax, double zbrojMax)
         {
@@ -73,6 +75,12 @@ namespace hrdina_a_drak___pondeli_10
             {
                 if (postava.MuzeBojovat() && postava != this && KontrolaOponenta(postava))
                 {
+                    if (postava != predchoziOponent)
+                    {
+                        predchoziOponent = postava;
+                        VybranNovyOponent?.Invoke(this, postava);
+                    }
+
                     return postava;
                 }
             }
