@@ -77,5 +77,19 @@ namespace hrdina_a_drak___pondeli_10
         {
             Console.WriteLine($"Postava: {utocnik.Jmeno} si vybrala nového oponenta: {oponent.Jmeno}");
         }
+
+        public void StatistikyPostav()
+        {
+            double prumernaSila = Postavy.Average(postava => postava.HodnoceniPostavy());
+            Console.WriteLine($"Průměrná síla postav je: {prumernaSila}");
+
+            List<Postava> draci = Postavy.FindAll(postava => postava is Drak);
+            draci.ForEach(postava => Console.WriteLine(postava.ToString()));
+            //draci.ForEach(Console.WriteLine);
+
+            Console.WriteLine(String.Empty);
+
+        }
+
     }
 }

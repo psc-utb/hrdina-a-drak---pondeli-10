@@ -50,6 +50,7 @@ namespace hrdina_a_drak___pondeli_10
             postavy.Add(new Hrdina("hrdina 5", 20, 5, 5));
             postavy.RemoveAt(2);
             ArenaPostav arenaPostav = new ArenaPostav(postavy);
+            arenaPostav.StatistikyPostav();
             arenaPostav.Boj();
 
             foreach(var postava in arenaPostav.Postavy)
