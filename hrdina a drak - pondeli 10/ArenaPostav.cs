@@ -52,6 +52,11 @@ namespace hrdina_a_drak___pondeli_10
             }
         }
 
+        public Task BojAsync()
+        {
+            return Task.Run(Boj);
+        }
+
         public bool PostavyMohouBojovat()
         {
             int kolikMuzeBojovat = 0;

@@ -11,8 +11,10 @@ namespace hrdina_a_drak___pondeli_10
             Mec mec = new Mec(25);
             Hrdina hrdina = new Hrdina("Geralt", 100, 100, 10, 10, mec);
             Hrdina hrdina2 = new Hrdina("Dovahkiin", 100, 100, 10, 10, mec);
+            Hrdina hrdina3 = hrdina2.Clone();
             Drak drak = new Drak("Alduin", 100, 100, 11, 10);
             Drak drak2 = new Drak("Šmak", 100, 100, 11, 10);
+            Drak drak3 = new Drak("Šmak", 100, 100, 11, 10);
             Vlk vlk = new Vlk("Wolf", 50, 50, 5, 5);
             Vlk vlk2 = new Vlk("Wolf2", 50, 50, 5, 5);
             Vlk vlk3 = new Vlk("Wolf3", 50, 50, 5, 5);
@@ -37,7 +39,9 @@ namespace hrdina_a_drak___pondeli_10
             //funguje jen s params v konstruktoru
             //ArenaPostav arenaPostav = new ArenaPostav(hrdina, drak);
 
-            List<Postava> postavy = new List<Postava>() { hrdina, drak2, drak, vlk3, vlk4, /*, hrdinaKlon*/ vlk, hrdina2, vlk2 };
+            List<Postava> postavy = new List<Postava>() { hrdina, drak, /*, hrdinaKlon*/ vlk};
+            List<Postava> postavy2 = new List<Postava>() { drak2, vlk2, hrdina2 };
+            List<Postava> postavy3 = new List<Postava>() { drak3, vlk3, vlk4, hrdina3 };
 
             //Array.Sort(postavy);
             postavy.Sort();
@@ -57,7 +61,14 @@ namespace hrdina_a_drak___pondeli_10
             {
                 Console.WriteLine(postava.ToString());
             }
+            Console.WriteLine("Synchronní volání dokončeno" + Environment.NewLine);
 
+            ArenaPostav arenaPostav2 = new ArenaPostav(postavy2);
+            ArenaPostav arenaPostav3 = new ArenaPostav(postavy3);
+            arenaPostav2.BojAsync();
+            arenaPostav3.BojAsync();
+
+            Console.ReadKey();
         }
     }
 }
